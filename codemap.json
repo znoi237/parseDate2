@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-31T13:18:44.764715Z",
+  "generated_at": "2025-10-31T13:19:17.507529Z",
   "root": "parseDate2",
   "files": [
     {
@@ -424,9 +424,9 @@
     },
     {
       "path": "model_pkg/trainers.py",
-      "size_bytes": 3848,
-      "lines": 89,
-      "sha1": "4a279bb3ff3c516eba66fa6594e2fd5927952bfa"
+      "size_bytes": 8894,
+      "lines": 243,
+      "sha1": "7f308f7ace4eebffe54acfbc848b7d58842c57f5"
     },
     {
       "path": "model_pkg/utils.py",
@@ -755,8 +755,8 @@
   ],
   "counts": {
     "total_files": 125,
-    "total_bytes": 4277602,
-    "total_lines": 22195
+    "total_bytes": 4282648,
+    "total_lines": 22349
   },
   "note": "Автогенерация scripts/generate_codemap.py. Не редактируйте вручную."
 }
