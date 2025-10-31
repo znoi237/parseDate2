@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-31T12:13:25.543216Z",
+  "generated_at": "2025-10-31T13:18:06.781373Z",
   "root": "parseDate2",
   "files": [
     {
@@ -316,9 +316,9 @@
     },
     {
       "path": "features.py",
-      "size_bytes": 4495,
+      "size_bytes": 4465,
       "lines": 115,
-      "sha1": "fe05e6f9aa09fb9fa1e11d2a98e6e43b74f19dc2"
+      "sha1": "15eb4cc79881451c9193612c5e2d174d257dfa98"
     },
     {
       "path": "indicator_settings.py",
@@ -755,7 +755,7 @@
   ],
   "counts": {
     "total_files": 125,
-    "total_bytes": 4273255,
+    "total_bytes": 4273225,
     "total_lines": 22066
   },
   "note": "Автогенерация scripts/generate_codemap.py. Не редактируйте вручную."
