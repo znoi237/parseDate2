@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-31T12:10:41.151521Z",
+  "generated_at": "2025-10-31T12:11:18.402591Z",
   "root": "parseDate2",
   "files": [
     {
@@ -556,9 +556,9 @@
     },
     {
       "path": "static/js/analysis_panels.js",
-      "size_bytes": 1682,
-      "lines": 48,
-      "sha1": "7cfbf630d3d91d670cf3c579f8c8abe95a6db465"
+      "size_bytes": 2039,
+      "lines": 57,
+      "sha1": "2afb5e34a571f2aa8320c30f08592249495d2408"
     },
     {
       "path": "static/js/analysis_panels_core.js",
@@ -755,8 +755,8 @@
   ],
   "counts": {
     "total_files": 125,
-    "total_bytes": 4271766,
-    "total_lines": 22020
+    "total_bytes": 4272123,
+    "total_lines": 22029
   },
   "note": "Автогенерация scripts/generate_codemap.py. Не редактируйте вручную."
 }
