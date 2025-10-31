@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-31T11:38:19.167566Z",
+  "generated_at": "2025-10-31T11:38:55.034557Z",
   "root": "parseDate2",
   "files": [
     {
@@ -501,6 +501,12 @@
       "sha1": "a39fe0065f78bb99799c0dbf07277fc16f505780"
     },
     {
+      "path": "requirements.txt",
+      "size_bytes": 116,
+      "lines": 8,
+      "sha1": "5d57f1962b399674e9e2e247e3a3371d6ec970b3"
+    },
+    {
       "path": "scripts/generate_codemap.py",
       "size_bytes": 4807,
       "lines": 128,
@@ -748,9 +754,9 @@
     }
   ],
   "counts": {
-    "total_files": 124,
-    "total_bytes": 4271380,
-    "total_lines": 22007
+    "total_files": 125,
+    "total_bytes": 4271496,
+    "total_lines": 22015
   },
   "note": "Автогенерация scripts/generate_codemap.py. Не редактируйте вручную."
 }
