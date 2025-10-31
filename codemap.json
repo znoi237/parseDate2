@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-31T13:18:06.781373Z",
+  "generated_at": "2025-10-31T13:18:44.764715Z",
   "root": "parseDate2",
   "files": [
     {
@@ -448,9 +448,9 @@
     },
     {
       "path": "optimizer.py",
-      "size_bytes": 404,
-      "lines": 7,
-      "sha1": "fe3a64b224a3b8dde02c55ef100026647c7cb36e"
+      "size_bytes": 4781,
+      "lines": 136,
+      "sha1": "9554135f970ceef6350d31792da1f7465c61ea73"
     },
     {
       "path": "pages.py",
@@ -755,8 +755,8 @@
   ],
   "counts": {
     "total_files": 125,
-    "total_bytes": 4273225,
-    "total_lines": 22066
+    "total_bytes": 4277602,
+    "total_lines": 22195
   },
   "note": "Автогенерация scripts/generate_codemap.py. Не редактируйте вручную."
 }
