@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-31T13:19:17.507529Z",
+  "generated_at": "2025-10-31T13:19:55.576781Z",
   "root": "parseDate2",
   "files": [
     {
@@ -412,9 +412,9 @@
     },
     {
       "path": "model_pkg/predict.py",
-      "size_bytes": 4495,
-      "lines": 132,
-      "sha1": "1d36996603b58c21f9a06fb580618bbe11977e24"
+      "size_bytes": 6468,
+      "lines": 173,
+      "sha1": "8844762be48b5dec2a77cabf3e532f40e3f051c9"
     },
     {
       "path": "model_pkg/save_compat.py",
@@ -755,8 +755,8 @@
   ],
   "counts": {
     "total_files": 125,
-    "total_bytes": 4282648,
-    "total_lines": 22349
+    "total_bytes": 4284621,
+    "total_lines": 22390
   },
   "note": "Автогенерация scripts/generate_codemap.py. Не редактируйте вручную."
 }
