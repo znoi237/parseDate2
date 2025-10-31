@@ -9,7 +9,46 @@ from config import Config
 
 
 def get_model_bundle(db, symbol: str, timeframe: str) -> Dict[str, Any]:
-    return db.load_model(symbol, timeframe) or {}
+    """
+    Совместимый загрузчик бандла.
+    - Если в models_store лежит bundle целиком в model_blob (dict), разворачиваем его в плоский словарь.
+    - Если лежит только модель, возвращаем минимум (модель, feature_names), scaler может отсутствовать.
+    """
+    m = db.load_model(symbol, timeframe) or {}
+    blob = m.get("model")
+    # кейс: в model_blob сохранён весь bundle (dict)
+    if isinstance(blob, dict):
+        out = dict(blob)  # копия
+        # подстрахуем feature_names
+        if "feature_names" not in out:
+            out["feature_names"] = out.get("features") or m.get("features") or []
+        return out
+    # кейс: сохранена только модель
+    return {
+        "model": blob,
+        "scaler": m.get("scaler"),  # вероятно None при старом формате
+        "feature_names": m.get("features") or [],
+        "features_settings": (m.get("meta") or {}).get("features_settings") if isinstance(m.get("meta"), dict) else {},
+        "meta": m.get("meta") or {},
+    }
+
+
+def _build_news_features_safe(db, df: pd.DataFrame, timeframe: str) -> Optional[pd.DataFrame]:
+    try:
+        from news_features import aggregate_news_features
+    except Exception:
+        return None
+    try:
+        if not isinstance(df.index, pd.DatetimeIndex) or df.index.size == 0:
+            return None
+        feats = aggregate_news_features(db, df.index, timeframe)
+        if feats is None or feats.empty:
+            return None
+        feats = feats.reindex(df.index, method="pad").fillna(0.0)
+        feats = feats.replace([np.inf, -np.inf], 0.0).fillna(0.0)
+        return feats
+    except Exception:
+        return None
 
 
 def predict_proba_for_tf(db, symbol: str, timeframe: str, df_window: pd.DataFrame) -> Optional[Dict[str, Any]]:
@@ -21,26 +60,36 @@ def predict_proba_for_tf(db, symbol: str, timeframe: str, df_window: pd.DataFram
     bundle = get_model_bundle(db, symbol, timeframe)
     clf = bundle.get("model")
     scaler = bundle.get("scaler")
-    if clf is None or scaler is None or df_window is None or df_window.empty:
+    if clf is None or df_window is None or df_window.empty:
         return None
 
     feats_settings = bundle.get("features_settings") or {}
-    X = build_features(df_window, feats_settings)
 
-    feature_names_saved = bundle.get("feature_names") or bundle.get("features")
+    # Совпадение фичей с обучением: тех + фундаментал
+    X_tech = build_features(df_window, feats_settings) or pd.DataFrame(index=df_window.index)
+    X_news = _build_news_features_safe(db, df_window, timeframe)
+    if X_news is not None and not X_news.empty:
+        X = X_tech.join(X_news, how="left")
+    else:
+        X = X_tech
+
+    X = X.replace([np.inf, -np.inf], np.nan).fillna(0.0)
+
+    feature_names_saved = bundle.get("feature_names") or bundle.get("features") or []
     X_aligned, _ = align_features_for_bundle(X, feature_names_saved, scaler)
 
     Xs = X_aligned.values
-    try:
-        Xs = scaler.transform(Xs)
-    except Exception:
-        n_exp = expected_n_features(scaler) or Xs.shape[1]
-        if Xs.shape[1] > n_exp:
-            Xs = Xs[:, :n_exp]
-        elif Xs.shape[1] < n_exp:
-            pad = np.zeros((Xs.shape[0], n_exp - Xs.shape[1]), dtype=float)
-            Xs = np.hstack([Xs, pad])
-        Xs = scaler.transform(Xs)
+    if scaler is not None:
+        try:
+            Xs = scaler.transform(Xs)
+        except Exception:
+            n_exp = expected_n_features(scaler) or Xs.shape[1]
+            if Xs.shape[1] > n_exp:
+                Xs = Xs[:, :n_exp]
+            elif Xs.shape[1] < n_exp:
+                pad = np.zeros((Xs.shape[0], n_exp - Xs.shape[1]), dtype=float)
+                Xs = np.hstack([Xs, pad])
+            Xs = scaler.transform(Xs)
 
     try:
         P = clf.predict_proba(Xs)
@@ -89,14 +138,6 @@ def predict_proba_for_tf(db, symbol: str, timeframe: str, df_window: pd.DataFram
 
 
 def predict_hierarchical(db, symbol: str, timeframes: List[str], latest_windows: Dict[str, pd.DataFrame]) -> Dict[str, Any]:
-    """
-    Возвращает консенсус и уверенность по списку ТФ на последних барах.
-    {
-      "consensus": -1|0|1,
-      "confidence": float [0..1],
-      "by_tf": { tf: {buy,hold,sell} }
-    }
-    """
     by_tf: Dict[str, Dict[str, float]] = {}
     for tf in timeframes:
         dfw = latest_windows.get(tf)
