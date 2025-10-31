@@ -1,7 +1,13 @@
 {
-  "generated_at": "2025-10-31T11:22:33.371333Z",
+  "generated_at": "2025-10-31T11:38:19.167566Z",
   "root": "parseDate2",
   "files": [
+    {
+      "path": ".gitignore",
+      "size_bytes": 305,
+      "lines": 28,
+      "sha1": "0c35297d21eec1552a4e616826fda5b0669b28ad"
+    },
     {
       "path": "LICENSE",
       "size_bytes": 34523,
@@ -742,9 +748,9 @@
     }
   ],
   "counts": {
-    "total_files": 123,
-    "total_bytes": 4271075,
-    "total_lines": 21979
+    "total_files": 124,
+    "total_bytes": 4271380,
+    "total_lines": 22007
   },
   "note": "Автогенерация scripts/generate_codemap.py. Не редактируйте вручную."
 }
