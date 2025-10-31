@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-31T13:33:56.218147Z",
+  "generated_at": "2025-10-31T13:56:11.582639Z",
   "root": "parseDate2",
   "files": [
     {
@@ -76,9 +76,9 @@
     },
     {
       "path": "api_pkg/jobs/training_runner.py",
-      "size_bytes": 8521,
-      "lines": 168,
-      "sha1": "bb0c69a5ac815ad8825d9e828140ca505dacbce7"
+      "size_bytes": 11006,
+      "lines": 214,
+      "sha1": "deebda4707647332520ba409b5abbc4b3122cd65"
     },
     {
       "path": "api_pkg/routes/analysis.py",
@@ -755,8 +755,8 @@
   ],
   "counts": {
     "total_files": 125,
-    "total_bytes": 4284586,
-    "total_lines": 22390
+    "total_bytes": 4287071,
+    "total_lines": 22436
   },
   "note": "Автогенерация scripts/generate_codemap.py. Не редактируйте вручную."
 }
