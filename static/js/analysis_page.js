@@ -12,22 +12,61 @@ function getFormValues() {
   return { symbol, timeframe: tf, limit };
 }
 
+// Ожидаем готовности динамических модулей панелей
+function waitForPanelsReady(timeoutMs = 8000, intervalMs = 50) {
+  return new Promise((resolve, reject) => {
+    const start = Date.now();
+    function ok() {
+      return typeof window.renderIndicatorPanelsFromAnalysis === "function"
+          && typeof window.setAnalysisContext === "function";
+    }
+    if (ok()) return resolve();
+    // слушаем событие от лоадера
+    function onReady() {
+      if (ok()) {
+        document.removeEventListener("analysis-panels-ready", onReady);
+        resolve();
+      }
+    }
+    document.addEventListener("analysis-panels-ready", onReady);
+    // параллельно – поллинг на случай, если событие потерялось
+    (function poll() {
+      if (ok()) {
+        document.removeEventListener("analysis-panels-ready", onReady);
+        return resolve();
+      }
+      if (Date.now() - start >= timeoutMs) {
+        document.removeEventListener("analysis-panels-ready", onReady);
+        return reject(new Error("Panels loader not ready"));
+      }
+      setTimeout(poll, intervalMs);
+    })();
+  });
+}
+
 async function loadAnalysisAndRender(rootId = "chart-root") {
   try {
+    // Ждём, пока модули analysis_panels догрузятся
+    await waitForPanelsReady();
+
     const { symbol, timeframe, limit } = getFormValues();
     // ВАЖНО: вызываем /api/analysis
     const js = await fetchJson(`/api/analysis?symbol=${encodeURIComponent(symbol)}&timeframe=${encodeURIComponent(timeframe)}&limit=${encodeURIComponent(limit)}`);
     const data = js.data || {};
     const ctx = { symbol, timeframe };
+
     if (typeof window.setAnalysisContext === "function") {
       window.setAnalysisContext(symbol, timeframe);
     }
+
     if (typeof window.renderIndicatorPanelsFromAnalysis === "function") {
       const wrap = document.getElementById("indicator-panels");
       if (wrap) wrap.remove();
       const exp = document.getElementById("explain-panel");
       if (exp) exp.remove();
       window.renderIndicatorPanelsFromAnalysis(data, ctx, rootId);
+    } else {
+      console.warn("renderIndicatorPanelsFromAnalysis is not available");
     }
   } catch (e) {
     console.error("analysis load failed", e);
