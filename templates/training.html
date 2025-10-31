@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Обучение{% endblock %}
+{% block content %}
+<div class="d-flex align-items-center gap-2 mb-3">
+  <h4 class="m-0">Обучение моделей</h4>
+  <span id="train_job_status" class="badge bg-secondary">нет задачи</span>
+</div>
+
+<form id="train-form" class="row g-3">
+  <div class="col-md-4">
+    <label class="form-label">Тикер</label>
+    <input type="text" class="form-control" id="tr_symbol" value="{{ symbol or (config.SYMBOLS[0] if config and config.SYMBOLS else 'BTC/USDT') }}">
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Режим</label>
+    <select id="tr_mode" class="form-select">
+      <option value="auto" selected>Инкрементальный (auto)</option>
+      <option value="full">Полный (full)</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">Годы истории</label>
+    <input type="number" class="form-control" id="tr_years" value="2" min="1" step="1">
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Оптимизация после обучения</label>
+    <select id="tr_opt" class="form-select">
+      <option value="true" selected>Да</option>
+      <option value="false">Нет</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <label class="form-label">Таймфреймы</label>
+    <div class="d-flex flex-wrap gap-3" id="tr_tfs">
+      {% for tf in ["15m","1h","4h","1d","1w"] %}
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="tf_{{ tf }}" name="tr_tf" value="{{ tf }}" {% if tf in (config.TIMEFRAMES if config else ["15m","1h","4h","1d","1w"]) %}checked{% endif %}>
+        <label class="form-check-label" for="tf_{{ tf }}">{{ tf }}</label>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-12 d-flex gap-2">
+    <button id="btn_train_start" type="button" class="btn btn-primary">Запустить обучение</button>
+    <button id="btn_train_refresh" type="button" class="btn btn-outline-secondary">Обновить статус</button>
+  </div>
+</form>
+
+<hr>
+
+<div class="mb-2">Прогресс</div>
+<div class="progress mb-3" style="height: 16px;">
+  <div class="progress-bar" id="train_progress_bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+</div>
+
+<div class="card">
+  <div class="card-header">Логи обучения</div>
+  <div class="card-body">
+    <pre id="train_logs" class="mb-0" style="max-height: 360px; overflow: auto; white-space: pre-wrap;"></pre>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/training_page.js"></script>
+{% endblock %}

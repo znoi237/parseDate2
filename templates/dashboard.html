@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% block title %}Дашборд{% endblock %}
+{% block content %}
+<div class="card mb-3">
+  <div class="card-header">Статус системы</div>
+  <div class="card-body">
+    <div class="row g-3">
+      <div class="col-md-3">
+        <div class="border rounded p-3 h-100">
+          <div class="d-flex justify-content-between">
+            <strong>Mainnet</strong>
+            <span id="mainnet_badge" class="badge bg-secondary">—</span>
+          </div>
+          <div class="small text-muted mt-2">
+            Баланс: <span id="mainnet_balance">—</span><br>
+            Открытых: <span id="mainnet_open">0</span> | Закрытых: <span id="mainnet_closed">0</span><br>
+            PnL: <span id="mainnet_pnl">0.00%</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="border rounded p-3 h-100">
+          <div class="d-flex justify-content-between">
+            <strong>Testnet</strong>
+            <span id="testnet_badge" class="badge bg-secondary">—</span>
+          </div>
+          <div class="small text-muted mt-2">
+            Баланс: <span id="testnet_balance">—</span><br>
+            Открытых: <span id="testnet_open">0</span> | Закрытых: <span id="testnet_closed">0</span><br>
+            PnL: <span id="testnet_pnl">0.00%</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="border rounded p-3 h-100">
+          <div class="d-flex justify-content-between">
+            <strong>WS</strong>
+            <span id="ws_badge" class="badge bg-secondary">—</span>
+          </div>
+          <div class="small text-muted mt-2">
+            Статус: <span id="ws_status_text">—</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="border rounded p-3 h-100">
+          <div class="d-flex justify-content-between">
+            <strong>Обучение</strong>
+            <span id="train_job_status" class="badge bg-secondary">нет задачи</span>
+          </div>
+          <div class="small text-muted mt-2">
+            Прогресс: <span id="train_job_progress">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <div class="card-header d-flex align-items-center">
+    <span class="me-auto">Аналитика пары</span>
+    <div class="d-flex gap-2">
+      <select id="an_symbol" class="form-select form-select-sm" style="width: 180px;">
+        {% for s in (config.SYMBOLS if config and config.SYMBOLS else ['BTC/USDT']) %}
+        <option value="{{ s }}">{{ s }}</option>
+        {% endfor %}
+      </select>
+      <select id="an_tf" class="form-select form-select-sm" style="width: 100px;">
+        {% for tf in (config.TIMEFRAMES if config and config.TIMEFRAMES else ['15m','1h','4h','1d']) %}
+        <option value="{{ tf }}" {% if tf=='15m' %}selected{% endif %}>{{ tf }}</option>
+        {% endfor %}
+      </select>
+      <button id="an_btn" class="btn btn-sm btn-primary">Показать</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div id="analysis_error" class="text-muted mb-2" style="display:none;">Ошибка загрузки анализа</div>
+    <div id="chart-root"></div>
+  </div>
+</div>
+
+<div class="row g-3 mb-3">
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-header">Рекомендация ИИ</div>
+      <div class="card-body">
+        <div id="ai_summary">—</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-header">Обнаруженные паттерны</div>
+      <div class="card-body">
+        <ul id="patterns_list" class="list-unstyled small mb-0"></ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-header">Торговые возможности</div>
+      <div class="card-body">
+        <ul id="opps_list" class="list-unstyled small mb-0"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-7">
+    <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <span class="me-auto">Список пар — статус обучения</span>
+        <button id="pairs_refresh" class="btn btn-sm btn-outline-secondary">Обновить</button>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-sm table-striped">
+            <thead>
+              <tr>
+                <th>Пара</th>
+                <th>Обучена</th>
+                <th>Крайнее полное</th>
+                <th>Крайнее дообучение</th>
+                <th>Accuracy</th>
+              </tr>
+            </thead>
+            <tbody id="pairs_tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <span class="me-auto">Журнал сделок</span>
+        <button id="trades_refresh" class="btn btn-sm btn-outline-secondary">Обновить</button>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive" style="max-height: 260px; overflow:auto;">
+          <table class="table table-sm table-striped align-middle">
+            <thead>
+              <tr>
+                <th>Время</th><th>Пара</th><th>Сторона</th><th>PnL%</th>
+              </tr>
+            </thead>
+            <tbody id="trades_tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-header d-flex align-items-center">
+    <span class="me-auto">Новости (24ч)</span>
+    <button id="news_refresh" class="btn btn-sm btn-outline-secondary">Обновить</button>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive" style="max-height: 260px; overflow:auto;">
+      <table class="table table-sm table-striped align-middle">
+        <thead>
+          <tr>
+            <th>Время</th><th>Источник</th><th>Заголовок</th><th>Сентимент</th>
+          </tr>
+        </thead>
+        <tbody id="news_tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

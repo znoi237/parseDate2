@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Индикаторы{% endblock %}
+{% block content %}
+<h4 class="mb-3">Индикаторы</h4>
+<p class="text-muted">Редактируйте JSON-настройки индикаторов. После сохранения они начнут применяться в аналитике/обучении.</p>
+<div class="mb-2 d-flex gap-2">
+  <button id="btn_ind_load" class="btn btn-outline-secondary">Загрузить</button>
+  <button id="btn_ind_save" class="btn btn-primary">Сохранить</button>
+</div>
+<textarea id="ind_json" class="form-control" style="min-height: 420px; font-family: monospace;"></textarea>
+<div id="ind_msg" class="form-text mt-2 text-muted"></div>
+{% endblock %}
+{% block scripts %}
+<script>
+(async function(){
+  async function fetchJson(url, opts){ const r=await fetch(url,opts); const t=await r.text(); if(!r.ok) throw new Error(t||r.statusText); return JSON.parse(t); }
+  async function load(){
+    const js = await fetchJson('/api/indicators');
+    document.getElementById('ind_json').value = JSON.stringify(js.data || {}, null, 2);
+    document.getElementById('ind_msg').textContent = 'Загружено.';
+  }
+  async function save(){
+    try{
+      const obj = JSON.parse(document.getElementById('ind_json').value);
+      await fetchJson('/api/indicators', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(obj) });
+      document.getElementById('ind_msg').textContent = 'Сохранено.';
+    }catch(e){
+      document.getElementById('ind_msg').textContent = 'Ошибка: ' + e.message;
+    }
+  }
+  document.getElementById('btn_ind_load').addEventListener('click', load);
+  document.getElementById('btn_ind_save').addEventListener('click', save);
+  load();
+})();
+</script>
+{% endblock %}

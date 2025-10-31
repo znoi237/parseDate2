@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Журнал сделок{% endblock %}
+{% block content %}
+<h4 class="mb-3">Журнал сделок</h4>
+<form id="trades-form" class="row g-2 align-items-end mb-3">
+  <div class="col-sm-3 col-md-2">
+    <label class="form-label">Сеть</label>
+    <select id="t_network" class="form-select">
+      <option value="testnet" selected>Testnet</option>
+      <option value="mainnet">Mainnet</option>
+    </select>
+  </div>
+  <div class="col-sm-3 col-md-2">
+    <label class="form-label">Тикер</label>
+    <input id="t_symbol" type="text" class="form-control" placeholder="BTC/USDT">
+  </div>
+  <div class="col-sm-3 col-md-2">
+    <label class="form-label">Статус</label>
+    <select id="t_status" class="form-select">
+      <option value="">Любой</option>
+      <option value="open">Открытые</option>
+      <option value="closed">Закрытые</option>
+    </select>
+  </div>
+  <div class="col-sm-12 col-md-auto">
+    <button type="submit" class="btn btn-primary">Показать</button>
+  </div>
+</form>
+
+<div class="table-responsive">
+  <table class="table table-sm table-striped align-middle">
+    <thead>
+      <tr>
+        <th>Сеть</th><th>Тикер</th><th>Сторона</th><th>Вход</th><th>Выход</th><th>PnL %</th><th>Статус</th><th>Время входа</th><th>Время выхода</th>
+      </tr>
+    </thead>
+    <tbody id="trades_tbody"></tbody>
+  </table>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/trades_page.js"></script>
+{% endblock %}

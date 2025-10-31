@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Аналитика{% endblock %}
+{% block content %}
+<div class="d-flex align-items-center gap-2 mb-3">
+  <h4 class="m-0">Аналитика</h4>
+  <span class="text-muted small">панели индикаторов, AI-сигнал, объяснение и новости</span>
+</div>
+
+<form class="row g-2 align-items-end mb-3" id="analysis-form">
+  <div class="col-sm-4 col-md-3">
+    <label class="form-label">Тикер</label>
+    <input type="text" class="form-control" id="an_symbol" value="{{ symbol }}">
+  </div>
+  <div class="col-sm-3 col-md-2">
+    <label class="form-label">Таймфрейм</label>
+    <select id="an_tf" class="form-select">
+      {% for tf in ["15m","1h","4h","1d","1w"] %}
+      <option value="{{ tf }}" {% if tf==timeframe %}selected{% endif %}>{{ tf }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-sm-3 col-md-2">
+    <label class="form-label">Свечей</label>
+    <input type="number" class="form-control" id="an_limit" value="{{ limit }}" min="100" step="50">
+  </div>
+  <div class="col-sm-12 col-md-auto">
+    <button type="submit" class="btn btn-primary">Обновить</button>
+  </div>
+</form>
+
+<!-- Контейнер основного графика; панели появятся под ним автоматически -->
+<div id="chart-root" style="height: 420px;" class="card">
+  <div class="card-body d-flex align-items-center justify-content-center text-muted">
+    Основной график (если есть). Панели появятся ниже.
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/analysis_page.js"></script>
+<script>
+  // Инициализация страницы из серверных значений (Jinja)
+  window.__AN_SYMBOL__ = "{{ symbol }}";
+  window.__AN_TF__ = "{{ timeframe }}";
+  window.__AN_LIMIT__ = {{ limit|int }};
+</script>
+{% endblock %}

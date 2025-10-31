@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}AI Trader{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/dashboard">AI Trader</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="topNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/api/analysis/view">Аналитика</a></li>
+          <li class="nav-item"><a class="nav-link" href="/api/training/view">Обучение</a></li>
+          <li class="nav-item"><a class="nav-link" href="/api/news/view">Новости</a></li>
+          <li class="nav-item"><a class="nav-link" href="/api/trades/view">Журнал</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navSettings" role="button" data-bs-toggle="dropdown" aria-expanded="false">Настройки</a>
+            <ul class="dropdown-menu" aria-labelledby="navSettings">
+              <li><a class="dropdown-item" href="/api/settings">Общие</a></li>
+              <li><a class="dropdown-item" href="/api/settings/indicators">Индикаторы</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" id="nav_profile_dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Профиль: <span id="nav_active_profile">—</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" id="profile_menu_list"></ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-3">
+    {% block content %}{% endblock %}
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js" crossorigin="anonymous"></script>
+  <script src="/static/js/main.js"></script>
+  <script src="/static/js/analysis_panels.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
