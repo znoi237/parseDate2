@@ -96,7 +96,7 @@ def build_features(df: pd.DataFrame, settings: Dict[str, Any], db=None, timefram
             print(f"[WARN] Failed to add news features: {e}")
 
     # --- Очистка ---
-    out = out.replace([np.inf, -np.inf], np.nan).fillna(method="ffill").fillna(method="bfill").fillna(0.0)
+    out = out.replace([np.inf, -np.inf], np.nan).ffill().bfill().fillna(0.0)
 
     return out.astype(float)
 
