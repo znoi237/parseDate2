@@ -1,4 +1,5 @@
 import time
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
 
 from flask import current_app
@@ -27,19 +28,47 @@ def start_training_job(sv, symbol: str, timeframes: list[str], years: int, mode:
         with_retries(lambda: sv.db.update_training_job(job_id, status=status, progress=prog, message=msg))
 
     def backtest_and_update_metrics_parallel(tfs: list[str]):
+        # Параллельная предвычислительная стадия (до бэктеста)
+        pre_workers = min(len(tfs), max(1, int(getattr(Config, "BACKTEST_MAX_WORKERS", 4))))
+        add_log("INFO", "backtest", f"start post-backtest parallel for {tfs}", {"workers": pre_workers})
+
+        # Объявляем прогресс сразу, чтобы не висеть на 97% без движения
+        update_job(f"precompute 0/{len(tfs)}", 0.97, "running")
+
+        precomps: dict[str, object] = {}
+        pre_done, pre_total = 0, len(tfs)
+
+        # Параллельно строим прекаш по TF
+        def _do_precompute(tf: str):
+            try:
+                pc = build_precompute(sv.db, sv.models, symbol, tf, limit=5000)
+                return tf, pc, None
+            except Exception as e:
+                return tf, None, e
+
+        with ThreadPoolExecutor(max_workers=pre_workers) as pool:
+            futures = {pool.submit(_do_precompute, tf): tf for tf in tfs}
+            for fut in as_completed(futures):
+                tf = futures[fut]
+                tf, pc, err = fut.result()
+                if err:
+                    precomps[tf] = None
+                    add_log("ERROR", "backtest", f"precompute failed {symbol} {tf}: {err}")
+                else:
+                    precomps[tf] = pc
+                pre_done += 1
+                # Чуть двигаем прогресс в зоне 0.97..0.975 на стадии precompute
+                prog = 0.97 + 0.005 * (pre_done / max(1, pre_total))
+                update_job(f"precompute {pre_done}/{pre_total}", prog, "running")
+
+        # Теперь собственно пост-бэктест (параллельно по TF)
         workers = min(len(tfs), max(1, int(getattr(Config, "BACKTEST_MAX_WORKERS", 4))))
         timeout_sec = int(getattr(Config, "BACKTEST_TIMEOUT_SEC", 180))
-        add_log("INFO", "backtest", f"start post-backtest parallel for {tfs}", {"workers": workers})
-        precomps = {}
-        for tf in tfs:
-            try:
-                precomps[tf] = build_precompute(sv.db, sv.models, symbol, tf, limit=5000)
-            except Exception as e:
-                precomps[tf] = None
-                add_log("ERROR", "backtest", f"precompute failed {symbol} {tf}: {e}")
+        add_log("INFO", "backtest", f"start backtest for {tfs}", {"workers": workers, "timeout_sec": timeout_sec})
 
         done, total = 0, len(tfs)
-        update_job(f"backtesting 0/{total}", 0.97, "running")
+        update_job(f"backtesting 0/{total}", 0.975, "running")
+
         results = []
         with ThreadPoolExecutor(max_workers=workers) as pool:
             futures = {}
@@ -57,6 +86,7 @@ def start_training_job(sv, symbol: str, timeframes: list[str], years: int, mode:
                     int(tuned.get("max_bars_in_trade", 200)),
                     precomps.get(tf)
                 )] = (tf, tuned)
+
             deadline = time.time() + timeout_sec
             pending = set(futures.keys())
             while pending:
@@ -74,11 +104,14 @@ def start_training_job(sv, symbol: str, timeframes: list[str], years: int, mode:
                             add_log("ERROR", "backtest", f"post-backtest failed {symbol} {tf}: {e}")
                         finally:
                             done += 1
-                            prog = 0.97 + 0.02 * (done / max(1, total))
+                            prog = 0.975 + 0.02 * (done / max(1, total))
+                            # не выходим за 0.995, финал всё равно выставим в 1.0
+                            prog = min(0.995, prog)
                             update_job(f"backtesting {done}/{total}", prog, "running")
                 except TimeoutError:
                     break
 
+            # Тайм-аут: отменяем оставшиеся и синхронный фолбэк
             if pending:
                 for fut in list(pending):
                     tf, tuned = futures[fut]
@@ -99,9 +132,11 @@ def start_training_job(sv, symbol: str, timeframes: list[str], years: int, mode:
                         results.append((tf, tuned, bt))
                     finally:
                         done += 1
-                        prog = 0.97 + 0.02 * (done / max(1, total))
+                        prog = 0.975 + 0.02 * (done / max(1, total))
+                        prog = min(0.995, prog)
                         update_job(f"backtesting {done}/{total}", prog, "running")
 
+        # Метрики по результатам
         for tf, tuned, bt in results:
             stats = (bt or {}).get("stats", {}) if bt else {}
             def _upd():
@@ -131,21 +166,32 @@ def start_training_job(sv, symbol: str, timeframes: list[str], years: int, mode:
             if do_opt:
                 totals = {tf: grid_size(GridDefaults) for tf in timeframes}
                 tf_done = {tf: 0 for tf in timeframes}
+                lock = threading.Lock()
 
                 def on_prog(ev: dict):
                     tf = ev.get("tf")
                     i = int(ev.get("i", 0)); total = int(ev.get("total", 1))
-                    tf_done[tf] = max(tf_done.get(tf, 0), min(i, total))
-                    frac = (sum(tf_done.values()) / max(1, sum(totals.values())))
-                    p = 0.80 + 0.17 * min(1.0, frac)
-                    p = min(0.97, max(0.80, p))
-                    write_status_cache(job_id, "running", p, f"optimizing {tf} {i}/{total}")
-                    if ev.get("phase") == "final" or i % 50 == 0 or i == total:
-                        add_log("DEBUG", "optimize", f"tf {tf} step {i}/{total}", {"best": ev.get("best")})
+                    with lock:
+                        tf_done[tf] = max(tf_done.get(tf, 0), min(i, total))
+                        frac = (sum(tf_done.values()) / max(1, sum(totals.values())))
+                        p = 0.80 + 0.17 * min(1.0, frac)
+                        p = min(0.97, max(0.80, p))
+                        write_status_cache(job_id, "running", p, f"optimizing {tf} {tf_done[tf]}/{totals.get(tf, total)}")
+                        if ev.get("phase") == "final" or i % 50 == 0 or i == total:
+                            add_log("DEBUG", "optimize", f"tf {tf} step {i}/{total}", {"best": ev.get("best")})
+
                 add_log("INFO", "optimize", f"opt start {symbol} tfs={timeframes}")
-                for tf in timeframes:
-                    optimize_symbol_tf(sv.db, sv.models, symbol, tf, on_progress=on_prog)
-                    add_log("INFO", "optimize", f"tf {tf} finished")
+                tf_workers = min(len(timeframes), max(1, int(getattr(Config, "OPTIMIZE_TF_MAX_WORKERS", 4))))
+                with ThreadPoolExecutor(max_workers=tf_workers) as pool:
+                    futures = {pool.submit(optimize_symbol_tf, sv.db, sv.models, symbol, tf, on_progress=on_prog): tf for tf in timeframes}
+                    for fut in as_completed(futures):
+                        tf = futures[fut]
+                        try:
+                            fut.result()
+                            add_log("INFO", "optimize", f"tf {tf} finished")
+                        except Exception as e:
+                            add_log("ERROR", "optimize", f"tf {tf} failed: {e}")
+
                 add_log("INFO", "optimize", f"opt complete {symbol}")
                 write_status_cache(job_id, "running", 0.97, "backtesting with tuned params")
 
