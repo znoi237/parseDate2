@@ -40,6 +40,7 @@ class Config:
 
     # Training / inference
     MAX_WORKERS = int(os.environ.get("MAX_WORKERS", "4"))
+    TRAIN_MAX_WORKERS = int(os.environ.get("TRAIN_MAX_WORKERS", "4"))
 
     # Parallelism for tuning/backtest (агрессивные дефолты, можно переопределить ENV)
     OPTIMIZE_MAX_WORKERS = _auto_workers(os.environ.get("OPTIMIZE_MAX_WORKERS"), aggressive=True)
@@ -49,7 +50,6 @@ class Config:
     SIG_ENTRY_THRESHOLD = float(os.environ.get("SIG_ENTRY_THRESHOLD", "0.60"))  # порог входа по |score|
     SIG_EXIT_THRESHOLD = float(os.environ.get("SIG_EXIT_THRESHOLD", "0.40"))    # порог выхода по |score|
     SIG_MIN_SUPPORT = float(os.environ.get("SIG_MIN_SUPPORT", "0.30"))          # мин. доля взвешенной поддержки старших ТФ
-    SIG_HOLD_MARGIN_MIN = float(os.environ.get("SIG_HOLD_MARGIN_MIN", "0.03"))  # min(max(buy,sell)-hold)
     SIG_LOOKBACK = int(os.environ.get("SIG_LOOKBACK", "2"))                     # скользящее среднее score
     EXIT_ON_FLIP = True  # закрывать сразу при смене знака score
 
