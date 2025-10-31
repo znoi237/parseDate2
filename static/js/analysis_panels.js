@@ -15,7 +15,7 @@
       s.src = src;
       s.async = false;
       s.onload = function () { resolve(src); };
-      s.onerror = function (e) { reject(new Error('Failed to load ' + src)); };
+      s.onerror = function () { reject(new Error('Failed to load ' + src)); };
       document.head.appendChild(s);
     });
   }
@@ -39,10 +39,19 @@
     'analysis_panels_main.js'
   ];
 
-  // Грузим по порядку
-  files.reduce(function (p, f) {
+  // Грузим по порядку и сигнализируем о готовности
+  var chain = files.reduce(function (p, f) {
     return p.then(function () { return loadScript(base + f); });
-  }, Promise.resolve()).catch(function (e) {
+  }, Promise.resolve());
+
+  chain.then(function () {
+    try {
+      window.AnalysisPanelsReady = true;
+      var ev = new Event('analysis-panels-ready');
+      document.dispatchEvent(ev);
+      if (typeof console !== 'undefined') console.info('[analysis_panels] modules loaded');
+    } catch (e) {}
+  }).catch(function (e) {
     console.error('[analysis_panels] loader error:', e);
   });
 })();
