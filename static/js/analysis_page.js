@@ -12,7 +12,7 @@ function getFormValues() {
   return { symbol, timeframe: tf, limit };
 }
 
-// Ожидаем готовности динамических модулей панелей
+// Ждём, пока лоадер analysis_panels подгрузит модули
 function waitForPanelsReady(timeoutMs = 8000, intervalMs = 50) {
   return new Promise((resolve, reject) => {
     const start = Date.now();
@@ -21,7 +21,7 @@ function waitForPanelsReady(timeoutMs = 8000, intervalMs = 50) {
           && typeof window.setAnalysisContext === "function";
     }
     if (ok()) return resolve();
-    // слушаем событие от лоадера
+
     function onReady() {
       if (ok()) {
         document.removeEventListener("analysis-panels-ready", onReady);
@@ -29,7 +29,7 @@ function waitForPanelsReady(timeoutMs = 8000, intervalMs = 50) {
       }
     }
     document.addEventListener("analysis-panels-ready", onReady);
-    // параллельно – поллинг на случай, если событие потерялось
+
     (function poll() {
       if (ok()) {
         document.removeEventListener("analysis-panels-ready", onReady);
@@ -46,11 +46,9 @@ function waitForPanelsReady(timeoutMs = 8000, intervalMs = 50) {
 
 async function loadAnalysisAndRender(rootId = "chart-root") {
   try {
-    // Ждём, пока модули analysis_panels догрузятся
     await waitForPanelsReady();
 
     const { symbol, timeframe, limit } = getFormValues();
-    // ВАЖНО: вызываем /api/analysis
     const js = await fetchJson(`/api/analysis?symbol=${encodeURIComponent(symbol)}&timeframe=${encodeURIComponent(timeframe)}&limit=${encodeURIComponent(limit)}`);
     const data = js.data || {};
     const ctx = { symbol, timeframe };
