@@ -1,0 +1,63 @@
+{"ts": "2025-10-29T15:26:35.990969", "level": "INFO", "phase": "sync", "message": "history sync start BTC/USDT tfs=['15m', '1h', '4h', '1d', '1w'] years=1 mode=full", "data": {}}
+{"ts": "2025-10-29T15:26:36.002099", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 15m", "data": {}}
+{"ts": "2025-10-29T15:26:51.577425", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 1h", "data": {}}
+{"ts": "2025-10-29T15:26:55.382978", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 4h", "data": {}}
+{"ts": "2025-10-29T15:26:56.626896", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 1d", "data": {}}
+{"ts": "2025-10-29T15:26:56.995608", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 1w", "data": {}}
+{"ts": "2025-10-29T15:26:57.349907", "level": "INFO", "phase": "sync", "message": "history sync complete", "data": {}}
+{"ts": "2025-10-29T15:26:57.364777", "level": "INFO", "phase": "train", "message": "train start BTC/USDT tfs=['15m', '1h', '4h', '1d', '1w'] mode=full", "data": {}}
+{"ts": "2025-10-29T15:27:05.678918", "level": "INFO", "phase": "train", "message": "train complete BTC/USDT", "data": {}}
+{"ts": "2025-10-29T15:28:45.670468", "level": "INFO", "phase": "optimize", "message": "opt start BTC/USDT tfs=['15m', '1h', '4h', '1d', '1w']", "data": {"workers": 24}}
+{"ts": "2025-10-29T15:29:23.998669", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 50/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:29:45.213269", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 100/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:30:06.369611", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 150/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:30:27.451051", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 200/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:30:48.424649", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 250/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:31:09.483825", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:31:09.492203", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:31:09.508351", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 2304/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:31:09.514392", "level": "INFO", "phase": "optimize", "message": "tf 15m finished", "data": {"tf": "15m"}}
+{"ts": "2025-10-29T15:31:28.459417", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 50/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:31:47.083219", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 100/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:32:05.588640", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 150/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:32:24.156956", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 200/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:32:42.978707", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 250/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:01.572118", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:01.579504", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:01.590822", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 2304/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:01.596648", "level": "INFO", "phase": "optimize", "message": "tf 1h finished", "data": {"tf": "1h"}}
+{"ts": "2025-10-29T15:33:09.618504", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 50/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:17.581523", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 100/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:25.560693", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 150/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:33.637458", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 200/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:41.687995", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 250/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:49.779029", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:49.785080", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:49.797614", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 2304/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:49.803719", "level": "INFO", "phase": "optimize", "message": "tf 4h finished", "data": {"tf": "4h"}}
+{"ts": "2025-10-29T15:33:51.457636", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 50/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:52.983860", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 100/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:54.440256", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 150/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:55.894525", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 200/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:57.328825", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 250/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:58.754295", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:58.759096", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:58.767585", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 2304/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:58.773063", "level": "INFO", "phase": "optimize", "message": "tf 1d finished", "data": {"tf": "1d"}}
+{"ts": "2025-10-29T15:33:59.204729", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 50/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:59.534968", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 100/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:33:59.865104", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 150/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:34:00.195611", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 200/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:34:00.524288", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 250/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:34:00.861961", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:34:00.867937", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 300/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:34:00.880383", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 2304/2304", "data": {"best": null}}
+{"ts": "2025-10-29T15:34:00.885599", "level": "INFO", "phase": "optimize", "message": "tf 1w finished", "data": {"tf": "1w"}}
+{"ts": "2025-10-29T15:34:00.892351", "level": "INFO", "phase": "optimize", "message": "opt complete BTC/USDT", "data": {}}
+{"ts": "2025-10-29T15:34:00.901990", "level": "INFO", "phase": "backtest", "message": "start post-backtest parallel for ['15m', '1h', '4h', '1d', '1w']", "data": {"workers": 5, "timeout_sec": 120}}
+{"ts": "2025-10-29T15:34:02.313028", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 1w", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T15:34:02.320116", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 1d", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T15:34:02.326174", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 4h", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T15:34:02.332444", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 1h", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T15:34:02.338670", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 15m", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T15:34:02.348585", "level": "INFO", "phase": "final", "message": "training pipeline completed", "data": {"symbol": "BTC/USDT", "tfs": ["15m", "1h", "4h", "1d", "1w"]}}

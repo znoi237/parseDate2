@@ -1,0 +1,106 @@
+{"ts": "2025-10-29T08:40:18.142560", "level": "INFO", "phase": "sync", "message": "history sync start BTC/USDT tfs=['15m', '1h', '4h', '1d', '1w'] years=1 mode=full", "data": {}}
+{"ts": "2025-10-29T08:40:18.151495", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 15m", "data": {}}
+{"ts": "2025-10-29T08:40:33.803898", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 1h", "data": {}}
+{"ts": "2025-10-29T08:40:38.053736", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 4h", "data": {}}
+{"ts": "2025-10-29T08:40:39.275925", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 1d", "data": {}}
+{"ts": "2025-10-29T08:40:39.630627", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 1w", "data": {}}
+{"ts": "2025-10-29T08:40:39.994930", "level": "INFO", "phase": "sync", "message": "history sync complete", "data": {}}
+{"ts": "2025-10-29T08:40:40.007476", "level": "INFO", "phase": "train", "message": "train start BTC/USDT tfs=['15m', '1h', '4h', '1d', '1w'] mode=full", "data": {}}
+{"ts": "2025-10-29T08:40:40.084056", "level": "INFO", "phase": "train", "message": "train complete BTC/USDT", "data": {}}
+{"ts": "2025-10-29T08:40:40.100029", "level": "INFO", "phase": "optimize", "message": "opt start BTC/USDT tfs=['15m', '1h', '4h', '1d', '1w']", "data": {"workers": 24}}
+{"ts": "2025-10-29T08:40:46.893488", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 10/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:40:53.207235", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 20/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:40:59.495921", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 30/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:41:05.754262", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 40/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:41:12.003335", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 50/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:41:18.217000", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 60/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:41:24.389303", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 70/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:41:30.579330", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 80/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:41:36.755572", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 90/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:41:42.937497", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 100/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:41:49.151960", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 110/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:41:55.398065", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 120/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:01.635421", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 130/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:07.851765", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 140/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:14.061906", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:14.067857", "level": "DEBUG", "phase": "optimize", "message": "tf 15m step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:18.607545", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 10/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:22.717195", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 20/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:26.811106", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 30/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:30.905934", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 40/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:35.010988", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 50/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:39.170761", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 60/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:43.326489", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 70/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:47.443996", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 80/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:51.599225", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 90/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:55.742367", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 100/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:42:59.847540", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 110/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:03.997395", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 120/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:08.122789", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 130/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:12.236902", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 140/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:16.381038", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:16.387664", "level": "DEBUG", "phase": "optimize", "message": "tf 1h step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:20.311737", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 10/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:23.793030", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 20/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:27.275693", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 30/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:30.759939", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 40/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:34.226053", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 50/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:37.708377", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 60/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:41.210074", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 70/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:44.738203", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 80/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:48.549590", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 90/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:52.692414", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 100/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:43:57.511667", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 110/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:02.344446", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 120/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:07.251081", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 130/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:12.044049", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 140/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:16.986428", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:16.989926", "level": "DEBUG", "phase": "optimize", "message": "tf 4h step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:19.776501", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 10/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:21.350966", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 20/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:22.801515", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 30/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:24.252013", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 40/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:25.689900", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 50/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:27.139816", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 60/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:28.580212", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 70/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:30.004305", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 80/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:31.433465", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 90/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:32.870655", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 100/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:34.307586", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 110/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:35.728152", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 120/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:37.171040", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 130/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:38.614112", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 140/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:40.053010", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:40.058105", "level": "DEBUG", "phase": "optimize", "message": "tf 1d step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:40.764634", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 10/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:41.017144", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 20/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:41.268840", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 30/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:41.522277", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 40/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:41.757262", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 50/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:42.016917", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 60/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:42.252066", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 70/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:42.505475", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 80/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:42.766723", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 90/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:43.021207", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 100/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:43.254299", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 110/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:43.506519", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 120/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:43.741608", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 130/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:43.975652", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 140/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:44.226099", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:44.234993", "level": "DEBUG", "phase": "optimize", "message": "tf 1w step 150/2304", "data": {"best": {"winrate": 0.0, "count": 0}}}
+{"ts": "2025-10-29T08:44:44.240958", "level": "INFO", "phase": "optimize", "message": "opt complete BTC/USDT", "data": {}}
+{"ts": "2025-10-29T08:44:44.253369", "level": "INFO", "phase": "backtest", "message": "start post-backtest parallel for ['15m', '1h', '4h', '1d', '1w']", "data": {"workers": 24}}
+{"ts": "2025-10-29T08:44:46.529058", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 1w", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T08:44:46.698945", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 1d", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T08:44:47.149195", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 4h", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T08:44:47.637969", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 1h", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T08:44:48.221908", "level": "INFO", "phase": "backtest", "message": "done backtest BTC/USDT 15m", "data": {"stats": {"count": 0, "winrate": 0.0}}}
+{"ts": "2025-10-29T08:44:48.235345", "level": "INFO", "phase": "final", "message": "training pipeline completed (precompute + parallel)", "data": {"symbol": "BTC/USDT", "tfs": ["15m", "1h", "4h", "1d", "1w"]}}
+{"ts": "2025-10-29T15:01:45.102139", "level": "INFO", "phase": "sync", "message": "history sync start BTC/USDT tfs=['15m', '1h', '4h', '1d', '1w'] years=1 mode=full", "data": {}}
+{"ts": "2025-10-29T15:01:45.115532", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 15m", "data": {}}
+{"ts": "2025-10-29T15:02:01.818744", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 1h", "data": {}}
+{"ts": "2025-10-29T15:02:05.693715", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 4h", "data": {}}
+{"ts": "2025-10-29T15:02:06.929476", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 1d", "data": {}}
+{"ts": "2025-10-29T15:02:07.299820", "level": "INFO", "phase": "sync", "message": "fetch BTC/USDT 1w", "data": {}}
+{"ts": "2025-10-29T15:02:07.670066", "level": "INFO", "phase": "sync", "message": "history sync complete", "data": {}}
+{"ts": "2025-10-29T15:02:07.682382", "level": "INFO", "phase": "train", "message": "train start BTC/USDT tfs=['15m', '1h', '4h', '1d', '1w'] mode=full", "data": {}}
