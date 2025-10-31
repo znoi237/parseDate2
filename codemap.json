@@ -1,0 +1,750 @@
+{
+  "generated_at": "2025-10-31T11:02:01.501237Z",
+  "root": "parseDate2",
+  "files": [
+    {
+      "path": "LICENSE",
+      "size_bytes": 34523,
+      "lines": 661,
+      "sha1": "a2f9ffbf32eeb6284afa81bc4fb4c27b80d044e9"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 12,
+      "lines": 1,
+      "sha1": "ce2db6338d8b8a7d5f93a46ec49a87f4fe55608d"
+    },
+    {
+      "path": "account_manager.py",
+      "size_bytes": 2536,
+      "lines": 61,
+      "sha1": "056826fd57183877e4fc27cbb2af52abff6233b2"
+    },
+    {
+      "path": "analysis_pkg/__init__.py",
+      "size_bytes": 166,
+      "lines": 3,
+      "sha1": "889c35614440716573bb36d3c00da18329937a3c"
+    },
+    {
+      "path": "analysis_pkg/blocks.py",
+      "size_bytes": 735,
+      "lines": 25,
+      "sha1": "3e6f177bd9cfdd98d015ab0b77d523789db29929"
+    },
+    {
+      "path": "analysis_pkg/indicators.py",
+      "size_bytes": 1270,
+      "lines": 35,
+      "sha1": "e8e5dce62e3b231dc6ffc51db6d65ee6207ed7e6"
+    },
+    {
+      "path": "analysis_pkg/patterns.py",
+      "size_bytes": 2623,
+      "lines": 47,
+      "sha1": "a85296c27c5ecf850fc6783a6ab0074348819337"
+    },
+    {
+      "path": "analysis_utils.py",
+      "size_bytes": 578,
+      "lines": 8,
+      "sha1": "a9fc393752d8261a1902e15fd6a7062a4e08a36e"
+    },
+    {
+      "path": "api.py",
+      "size_bytes": 285,
+      "lines": 6,
+      "sha1": "d2abcd7647a68474c70ed9c8165a7be07803c26d"
+    },
+    {
+      "path": "api_pkg/__init__.py",
+      "size_bytes": 51,
+      "lines": 1,
+      "sha1": "3af5689b38663f4f8b674c36a923a08bad11e0f1"
+    },
+    {
+      "path": "api_pkg/app.py",
+      "size_bytes": 3139,
+      "lines": 86,
+      "sha1": "24c6ed42182a72469d97ade606a20879623d789e"
+    },
+    {
+      "path": "api_pkg/jobs/training_runner.py",
+      "size_bytes": 8521,
+      "lines": 168,
+      "sha1": "bb0c69a5ac815ad8825d9e828140ca505dacbce7"
+    },
+    {
+      "path": "api_pkg/routes/analysis.py",
+      "size_bytes": 9992,
+      "lines": 209,
+      "sha1": "4432249efc7555fb55423b738b43b89fe920290d"
+    },
+    {
+      "path": "api_pkg/routes/bots.py",
+      "size_bytes": 3017,
+      "lines": 80,
+      "sha1": "39421807be1bc5982393e86ac70a76d7b7352e15"
+    },
+    {
+      "path": "api_pkg/routes/common.py",
+      "size_bytes": 3510,
+      "lines": 91,
+      "sha1": "155eeb5980b59ca1df91adc89e197a725b4aadb1"
+    },
+    {
+      "path": "api_pkg/routes/explain.py",
+      "size_bytes": 5561,
+      "lines": 119,
+      "sha1": "20a4c3120f35d4f83a90d11a91b1f3aaeff1648e"
+    },
+    {
+      "path": "api_pkg/routes/indicators_profiles.py",
+      "size_bytes": 5088,
+      "lines": 117,
+      "sha1": "4ce26f7d72fabe03f231ed6109f28ab88787e58b"
+    },
+    {
+      "path": "api_pkg/routes/market.py",
+      "size_bytes": 1066,
+      "lines": 28,
+      "sha1": "bf6915b566755c113d5311141459fedef088854b"
+    },
+    {
+      "path": "api_pkg/routes/news_trades.py",
+      "size_bytes": 1761,
+      "lines": 52,
+      "sha1": "65444807177aeaa167c377bdda31f67264c347b8"
+    },
+    {
+      "path": "api_pkg/routes/settings_pages.py",
+      "size_bytes": 549,
+      "lines": 19,
+      "sha1": "f0baadbd2e2acf883b533bdbec6cede7e0fe9c9f"
+    },
+    {
+      "path": "api_pkg/routes/training.py",
+      "size_bytes": 3445,
+      "lines": 92,
+      "sha1": "4afec0da6f6d2c7808d32311cd5518ad6394dacc"
+    },
+    {
+      "path": "api_pkg/status_cache.py",
+      "size_bytes": 1433,
+      "lines": 48,
+      "sha1": "9a8d3c4a0ca7dc1125fecfec0a66eea39e0fa75f"
+    },
+    {
+      "path": "app.py",
+      "size_bytes": 1317,
+      "lines": 41,
+      "sha1": "1b348ee746509c71e652f5e0dca911777876b7c2"
+    },
+    {
+      "path": "backtest.py",
+      "size_bytes": 294,
+      "lines": 6,
+      "sha1": "d1944015cff00b6da3a38a603e2d40af4a8e9045"
+    },
+    {
+      "path": "backtest_pkg/__init__.py",
+      "size_bytes": 32,
+      "lines": 1,
+      "sha1": "e83ce866afec2eaff24b3957e8e6190ef938bd88"
+    },
+    {
+      "path": "backtest_pkg/runner.py",
+      "size_bytes": 1507,
+      "lines": 47,
+      "sha1": "5e112157e0a4e5b91baced3463a0fb14bbbbc6b5"
+    },
+    {
+      "path": "backtest_pkg/trader.py",
+      "size_bytes": 7092,
+      "lines": 185,
+      "sha1": "a211757ce8acaa03683c1c99b85f0d73fba253ca"
+    },
+    {
+      "path": "backtest_pkg/utils.py",
+      "size_bytes": 1782,
+      "lines": 49,
+      "sha1": "b845f148b097cdaf63ac26104d886b5e8ef1a6dd"
+    },
+    {
+      "path": "bots_manager.py",
+      "size_bytes": 282,
+      "lines": 6,
+      "sha1": "3e6c31c505eafe8b5fb6d8e9abf136320e290799"
+    },
+    {
+      "path": "bots_pkg/__init__.py",
+      "size_bytes": 31,
+      "lines": 1,
+      "sha1": "85cb9edb92f0712fc81d2772d0917f5a93c9d3d7"
+    },
+    {
+      "path": "bots_pkg/manager.py",
+      "size_bytes": 10913,
+      "lines": 250,
+      "sha1": "0eb05202d733ced5de578998d9fb388f2d87ee40"
+    },
+    {
+      "path": "codemap.yml",
+      "size_bytes": 1018,
+      "lines": 38,
+      "sha1": "5bcfde28c11634e70cc3ef605dd6f7658a1543dc"
+    },
+    {
+      "path": "config.py",
+      "size_bytes": 4175,
+      "lines": 111,
+      "sha1": "e6eb5db9c870a13e4e29ad50fdb511d951df0a89"
+    },
+    {
+      "path": "data_manager.py",
+      "size_bytes": 297,
+      "lines": 6,
+      "sha1": "170098cf77dce2a723291aef3ef895a11d133415"
+    },
+    {
+      "path": "data_pkg/__init__.py",
+      "size_bytes": 41,
+      "lines": 1,
+      "sha1": "f4e66d14ce39ab1c713a5dc9010787f231ccc7ac"
+    },
+    {
+      "path": "data_pkg/ccxt_manager.py",
+      "size_bytes": 3999,
+      "lines": 105,
+      "sha1": "d62e723cbe9c96a761e47fe736c4360312ce46cb"
+    },
+    {
+      "path": "database.py",
+      "size_bytes": 284,
+      "lines": 6,
+      "sha1": "685850cc637b9b2cce4cbfd9640fac572e67a6f3"
+    },
+    {
+      "path": "db_pkg/__init__.py",
+      "size_bytes": 36,
+      "lines": 1,
+      "sha1": "4f4e12f0e78904529eb6d436ae2ddcedf9ac25d5"
+    },
+    {
+      "path": "db_pkg/api_keys.py",
+      "size_bytes": 831,
+      "lines": 23,
+      "sha1": "12ae7c0232711659b64a9fba5084f0e555e31719"
+    },
+    {
+      "path": "db_pkg/bots.py",
+      "size_bytes": 1472,
+      "lines": 46,
+      "sha1": "d5486b605fb2706852dffd800827f72e9a9069d3"
+    },
+    {
+      "path": "db_pkg/conn_init9.py",
+      "size_bytes": 6421,
+      "lines": 176,
+      "sha1": "925296244e782c2de54b66b802a9992350393dbc"
+    },
+    {
+      "path": "db_pkg/historical.py",
+      "size_bytes": 2895,
+      "lines": 77,
+      "sha1": "6066fe46380bb4b91b78d92630734c66010006cc"
+    },
+    {
+      "path": "db_pkg/manager.py",
+      "size_bytes": 1098,
+      "lines": 34,
+      "sha1": "2ef16b42ea60410da4639484d1ac68350a07bb57"
+    },
+    {
+      "path": "db_pkg/model_params.py",
+      "size_bytes": 1037,
+      "lines": 33,
+      "sha1": "cac55e337dc582a7a51de9a8e5d3640dd1685de5"
+    },
+    {
+      "path": "db_pkg/models_store.py",
+      "size_bytes": 4944,
+      "lines": 147,
+      "sha1": "6124277be9b7a9295d10cacda8f5f86b4a0c5254"
+    },
+    {
+      "path": "db_pkg/news.py",
+      "size_bytes": 1206,
+      "lines": 39,
+      "sha1": "4b7a052842afa0b2250f6d115b70dcac28224e9b"
+    },
+    {
+      "path": "db_pkg/settings.py",
+      "size_bytes": 3652,
+      "lines": 100,
+      "sha1": "b7766f4087788433073d74c455c51b6f3ae6e8e9"
+    },
+    {
+      "path": "db_pkg/trades.py",
+      "size_bytes": 4298,
+      "lines": 105,
+      "sha1": "c9b42e48c11d977a131e19b4dcce6e5db995c13a"
+    },
+    {
+      "path": "db_pkg/training_jobs.py",
+      "size_bytes": 2596,
+      "lines": 86,
+      "sha1": "831114942f23cb3a1c97b3584359373d3e3df4c7"
+    },
+    {
+      "path": "db_pkg/training_logs.py",
+      "size_bytes": 1176,
+      "lines": 33,
+      "sha1": "0033908635fdd09a2d5a6cd89cbd07062347423e"
+    },
+    {
+      "path": "db_pkg/utils.py",
+      "size_bytes": 974,
+      "lines": 35,
+      "sha1": "82a66a7b8d852655536f93345cdb389d0d4501fd"
+    },
+    {
+      "path": "features.py",
+      "size_bytes": 4495,
+      "lines": 115,
+      "sha1": "fe05e6f9aa09fb9fa1e11d2a98e6e43b74f19dc2"
+    },
+    {
+      "path": "indicator_settings.py",
+      "size_bytes": 2662,
+      "lines": 60,
+      "sha1": "1fd94114797638fc9b517e3104f671b83d88930d"
+    },
+    {
+      "path": "indicators_panels.py",
+      "size_bytes": 598,
+      "lines": 9,
+      "sha1": "208b3cdd796f21a462d8ae3b53f187606ec20130"
+    },
+    {
+      "path": "logs/training/job_1.log",
+      "size_bytes": 15363,
+      "lines": 98,
+      "sha1": "50f80f224b4289765ad71c5172a3f1e405d7a305"
+    },
+    {
+      "path": "logs/training/job_10.log",
+      "size_bytes": 8721,
+      "lines": 63,
+      "sha1": "29c1e3feb598d18adad5289650fbef5dcefbdc34"
+    },
+    {
+      "path": "logs/training/job_2.log",
+      "size_bytes": 28104,
+      "lines": 178,
+      "sha1": "ca3adc5167c0db869bea23fdda658ae7926cfef5"
+    },
+    {
+      "path": "logs/training/job_3.log",
+      "size_bytes": 8702,
+      "lines": 63,
+      "sha1": "7a834ae034daafd4bbff4d77878313649203b5a0"
+    },
+    {
+      "path": "logs/training/job_4.log",
+      "size_bytes": 38207,
+      "lines": 158,
+      "sha1": "5ff539706e090c35cf30e5520e02112a56594cc9"
+    },
+    {
+      "path": "logs/training/job_5.log",
+      "size_bytes": 3506736,
+      "lines": 10879,
+      "sha1": "9d227705173b3bec6698f0c3db31e105c2a1b25c"
+    },
+    {
+      "path": "logs/training/job_6.log",
+      "size_bytes": 305165,
+      "lines": 2246,
+      "sha1": "5670f24d36c4820379c76094b7d3de88b6d026f4"
+    },
+    {
+      "path": "logs/training/job_7.log",
+      "size_bytes": 16419,
+      "lines": 106,
+      "sha1": "ae14c8600b1a1f8567ed25dddae60d91a4923907"
+    },
+    {
+      "path": "logs/training/job_8.log",
+      "size_bytes": 8721,
+      "lines": 63,
+      "sha1": "45ea5296a09f725acede58497ffcf35cb7d4fbdf"
+    },
+    {
+      "path": "logs/training/job_9.log",
+      "size_bytes": 8721,
+      "lines": 63,
+      "sha1": "7517aab452fa1cd7ca936e9d7f05f7823b1cb9d2"
+    },
+    {
+      "path": "model_manager.py",
+      "size_bytes": 289,
+      "lines": 6,
+      "sha1": "8e745f609dc69b7ca9a86fd2e14d2303de6de7b0"
+    },
+    {
+      "path": "model_pkg/__init__.py",
+      "size_bytes": 80,
+      "lines": 1,
+      "sha1": "c4c41c777523df5133944d891bf0c0a78e36365f"
+    },
+    {
+      "path": "model_pkg/manager.py",
+      "size_bytes": 1537,
+      "lines": 36,
+      "sha1": "d3de3d8d4a90341747570bf80080a3b1cfd12c3f"
+    },
+    {
+      "path": "model_pkg/predict.py",
+      "size_bytes": 4495,
+      "lines": 132,
+      "sha1": "1d36996603b58c21f9a06fb580618bbe11977e24"
+    },
+    {
+      "path": "model_pkg/save_compat.py",
+      "size_bytes": 2945,
+      "lines": 86,
+      "sha1": "c3e58b89fabc99834ea1cbbf1e043e82e471e9f7"
+    },
+    {
+      "path": "model_pkg/trainers.py",
+      "size_bytes": 3848,
+      "lines": 89,
+      "sha1": "4a279bb3ff3c516eba66fa6594e2fd5927952bfa"
+    },
+    {
+      "path": "model_pkg/utils.py",
+      "size_bytes": 2283,
+      "lines": 63,
+      "sha1": "688ef9164a5607c5c60417ed31075946eae7f7a8"
+    },
+    {
+      "path": "news_features.py",
+      "size_bytes": 3969,
+      "lines": 93,
+      "sha1": "18539fd513438c84c9ee1bc3fff5c2e3529a04a4"
+    },
+    {
+      "path": "news_ingestor.py",
+      "size_bytes": 3207,
+      "lines": 75,
+      "sha1": "9d706c83c4d3717a9f12df413d011979cde178a8"
+    },
+    {
+      "path": "optimizer.py",
+      "size_bytes": 404,
+      "lines": 7,
+      "sha1": "fe3a64b224a3b8dde02c55ef100026647c7cb36e"
+    },
+    {
+      "path": "pages.py",
+      "size_bytes": 769,
+      "lines": 31,
+      "sha1": "a7728c07f26075b1b5b3cacacae1b1248fabf68e"
+    },
+    {
+      "path": "panels_pkg/__init__.py",
+      "size_bytes": 142,
+      "lines": 3,
+      "sha1": "e5a6264cecd1c346286c30878a6d58d05ede2baa"
+    },
+    {
+      "path": "panels_pkg/indicators_core.py",
+      "size_bytes": 3737,
+      "lines": 97,
+      "sha1": "8bbbb8e1a7fe6fbcdd4f30a1c36737222d368ba9"
+    },
+    {
+      "path": "panels_pkg/panels.py",
+      "size_bytes": 2527,
+      "lines": 50,
+      "sha1": "95fb8ef9d3119404bfccbf6328f021dd8b58a12d"
+    },
+    {
+      "path": "panels_pkg/signal_panel.py",
+      "size_bytes": 2729,
+      "lines": 66,
+      "sha1": "7121c009aa21a09c3aa96b4b9bec128f041bda2f"
+    },
+    {
+      "path": "precompute_cache.py",
+      "size_bytes": 312,
+      "lines": 6,
+      "sha1": "72ccc4d97a24ccb02b87e53dea9e6af704f5b274"
+    },
+    {
+      "path": "precompute_pkg/__init__.py",
+      "size_bytes": 34,
+      "lines": 1,
+      "sha1": "ae6b026a546ec1401ab75b58ec1f9228a66708b5"
+    },
+    {
+      "path": "precompute_pkg/core.py",
+      "size_bytes": 12280,
+      "lines": 290,
+      "sha1": "a39fe0065f78bb99799c0dbf07277fc16f505780"
+    },
+    {
+      "path": "scripts/generate_codemap.py",
+      "size_bytes": 4807,
+      "lines": 128,
+      "sha1": "be964fd7afcd299156e081a9612e5fa63b08d141"
+    },
+    {
+      "path": "scripts/verify_limits.py",
+      "size_bytes": 2553,
+      "lines": 65,
+      "sha1": "0768122695ea7700712a90615ad05f1043a634b0"
+    },
+    {
+      "path": "signal_engine.py",
+      "size_bytes": 439,
+      "lines": 7,
+      "sha1": "790df7b056ff4fd7d32e7868fdf18a7c8ccd0c79"
+    },
+    {
+      "path": "signal_pkg/__init__.py",
+      "size_bytes": 101,
+      "lines": 2,
+      "sha1": "994506a78673d9f62d41e22e358fd906f06f06fe"
+    },
+    {
+      "path": "signal_pkg/agg.py",
+      "size_bytes": 2888,
+      "lines": 80,
+      "sha1": "ba9005e362ec37fd126606fb8513b152722543df"
+    },
+    {
+      "path": "signal_pkg/decisions.py",
+      "size_bytes": 2157,
+      "lines": 51,
+      "sha1": "888932bba73cae3dd1574007a90574e5857b3c68"
+    },
+    {
+      "path": "static/js/analysis.js",
+      "size_bytes": 5221,
+      "lines": 134,
+      "sha1": "83fc1c43684501f6d4542f916519d7c52d810993"
+    },
+    {
+      "path": "static/js/analysis_page.js",
+      "size_bytes": 2320,
+      "lines": 56,
+      "sha1": "6fe7d31833fcbbdfc05f67a21b838fccdd0e688c"
+    },
+    {
+      "path": "static/js/analysis_panels.js",
+      "size_bytes": 1682,
+      "lines": 48,
+      "sha1": "7cfbf630d3d91d670cf3c579f8c8abe95a6db465"
+    },
+    {
+      "path": "static/js/analysis_panels_core.js",
+      "size_bytes": 5703,
+      "lines": 146,
+      "sha1": "739ad3d0a193a6896ff6442661fbedf8d05e67fa"
+    },
+    {
+      "path": "static/js/analysis_panels_main.js",
+      "size_bytes": 1898,
+      "lines": 39,
+      "sha1": "03614f50539daf5e380456fc39c413d4c479498e"
+    },
+    {
+      "path": "static/js/analysis_panels_renderers.js",
+      "size_bytes": 7831,
+      "lines": 162,
+      "sha1": "ccca68439ba98b3bb683ae62b92e196a2cce675e"
+    },
+    {
+      "path": "static/js/analysis_panels_signal.js",
+      "size_bytes": 3321,
+      "lines": 66,
+      "sha1": "322da357568c456d289b3b927790b591097732d4"
+    },
+    {
+      "path": "static/js/bots.js",
+      "size_bytes": 3122,
+      "lines": 99,
+      "sha1": "44c0c39ab1f88878fc9b739bf55c41e04c3a941d"
+    },
+    {
+      "path": "static/js/dashboard.js",
+      "size_bytes": 7855,
+      "lines": 206,
+      "sha1": "c27d46077e468a380ded9f40fa6e668716eda71a"
+    },
+    {
+      "path": "static/js/main.js",
+      "size_bytes": 3876,
+      "lines": 111,
+      "sha1": "6afa0df7b1a1c836392fadceebc57fa6cb11c46a"
+    },
+    {
+      "path": "static/js/news_page.js",
+      "size_bytes": 1220,
+      "lines": 31,
+      "sha1": "fc76dac2c2c5dbb258ccbae718831bb0999b3af9"
+    },
+    {
+      "path": "static/js/settings.js",
+      "size_bytes": 4413,
+      "lines": 105,
+      "sha1": "3b58a883480895a9f339bc0a3297e3c7c2c48022"
+    },
+    {
+      "path": "static/js/settings_api.js",
+      "size_bytes": 1064,
+      "lines": 21,
+      "sha1": "4ad2d7918107cacec92d6ca12155f9ae3b1d89b7"
+    },
+    {
+      "path": "static/js/settings_indicators.js",
+      "size_bytes": 5113,
+      "lines": 99,
+      "sha1": "c780584e47c46ad76d54cf83009c31bc46c70177"
+    },
+    {
+      "path": "static/js/symbol.js",
+      "size_bytes": 889,
+      "lines": 21,
+      "sha1": "4ed7e42157c7ddd0e1527de7732051f6ecbaa523"
+    },
+    {
+      "path": "static/js/trades_page.js",
+      "size_bytes": 1548,
+      "lines": 40,
+      "sha1": "6dda47796a99b6a4de9c4e068cfe26623c8693fa"
+    },
+    {
+      "path": "static/js/training.js",
+      "size_bytes": 7280,
+      "lines": 243,
+      "sha1": "887eeae4716197b3f7a653905c1d507ccbd0c7f6"
+    },
+    {
+      "path": "static/js/training_feature_importance.js",
+      "size_bytes": 1863,
+      "lines": 68,
+      "sha1": "d2cee65b995d12c48e6b684c64de08640dd67c80"
+    },
+    {
+      "path": "static/js/training_page.js",
+      "size_bytes": 4158,
+      "lines": 110,
+      "sha1": "690ae4e75fcda308d894ac7c516600f6e9ff4b9b"
+    },
+    {
+      "path": "templates/analysis.html",
+      "size_bytes": 1985,
+      "lines": 46,
+      "sha1": "f9caf71b501dad2c7dcd30e71bbddb7bdddbc597"
+    },
+    {
+      "path": "templates/base.html",
+      "size_bytes": 2712,
+      "lines": 51,
+      "sha1": "c7950fd8d0046f184b99d74a3617dcb1a355df69"
+    },
+    {
+      "path": "templates/bots.html",
+      "size_bytes": 1653,
+      "lines": 50,
+      "sha1": "39837bda2a33f7814471ecaa67ba07ba4918b361"
+    },
+    {
+      "path": "templates/dashboard.html",
+      "size_bytes": 6515,
+      "lines": 178,
+      "sha1": "2e6c2a14ffb8e8e4122476739dbd4951db3e5736"
+    },
+    {
+      "path": "templates/news.html",
+      "size_bytes": 717,
+      "lines": 22,
+      "sha1": "d4bde789e20e863c2b97d810bf9cf9151d108a60"
+    },
+    {
+      "path": "templates/settings.html",
+      "size_bytes": 2303,
+      "lines": 55,
+      "sha1": "4604b39064c8ce31c3b9585eebc989588b04eb99"
+    },
+    {
+      "path": "templates/settings_api.html",
+      "size_bytes": 1266,
+      "lines": 30,
+      "sha1": "5323bb9a8ee98246f22cb55de91ebd9f20d30e31"
+    },
+    {
+      "path": "templates/settings_indicators.html",
+      "size_bytes": 1818,
+      "lines": 36,
+      "sha1": "3e4882b758c58b342dd4f0fab38343cf1cdebc30"
+    },
+    {
+      "path": "templates/settings_trading.html",
+      "size_bytes": 1048,
+      "lines": 27,
+      "sha1": "7f421a562294e4b06031cfbcf75b2cb24cdef534"
+    },
+    {
+      "path": "templates/symbol.html",
+      "size_bytes": 554,
+      "lines": 18,
+      "sha1": "4aac14d29206a6bfdee6ad82424eb4c5c164f198"
+    },
+    {
+      "path": "templates/trades.html",
+      "size_bytes": 1616,
+      "lines": 43,
+      "sha1": "30b4dac2263a8915eeb3878f7684b31177743cc3"
+    },
+    {
+      "path": "templates/training.html",
+      "size_bytes": 2732,
+      "lines": 65,
+      "sha1": "a617d3dbc2287e57c465bc990f1591d049a70648"
+    },
+    {
+      "path": "utils/__init__.py",
+      "size_bytes": 147,
+      "lines": 1,
+      "sha1": "0b9938cdc9f9ebf1f0ebf0e2a29a02d7a07aa23c"
+    },
+    {
+      "path": "utils/retry.py",
+      "size_bytes": 1375,
+      "lines": 43,
+      "sha1": "03ce9733b6cf31dac30a3c18c6f2f19be7f3d60b"
+    },
+    {
+      "path": "utils/sqlite_wal.py",
+      "size_bytes": 2731,
+      "lines": 61,
+      "sha1": "127daebc279435fc35897ae49fd580ded63150bc"
+    },
+    {
+      "path": "websocket_manager.py",
+      "size_bytes": 4818,
+      "lines": 137,
+      "sha1": "285bf64d3764e41bcfa1dd892c06b99b303ae522"
+    }
+  ],
+  "counts": {
+    "total_files": 123,
+    "total_bytes": 4271074,
+    "total_lines": 21979
+  },
+  "note": "Автогенерация scripts/generate_codemap.py. Не редактируйте вручную."
+}
