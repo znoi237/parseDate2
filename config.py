@@ -42,16 +42,17 @@ class Config:
     MAX_WORKERS = int(os.environ.get("MAX_WORKERS", "4"))
     TRAIN_MAX_WORKERS = int(os.environ.get("TRAIN_MAX_WORKERS", "4"))
 
-    # Parallelism for tuning/backtest (агрессивные дефолты, можно переопределить ENV)
-    OPTIMIZE_MAX_WORKERS = _auto_workers(os.environ.get("OPTIMIZE_MAX_WORKERS"), aggressive=True)
+    # Parallelism for tuning/backtest
+    OPTIMIZE_MAX_WORKERS = int(os.environ.get("OPTIMIZE_MAX_WORKERS", "4"))     # внутри ТФ (перебор сетки)
+    OPTIMIZE_TF_MAX_WORKERS = int(os.environ.get("OPTIMIZE_TF_MAX_WORKERS", "4"))  # по таймфреймам
     BACKTEST_MAX_WORKERS = _auto_workers(os.environ.get("BACKTEST_MAX_WORKERS"), aggressive=True)
 
     # Signal engine thresholds (мягкая иерархия)
-    SIG_ENTRY_THRESHOLD = float(os.environ.get("SIG_ENTRY_THRESHOLD", "0.60"))  # порог входа по |score|
-    SIG_EXIT_THRESHOLD = float(os.environ.get("SIG_EXIT_THRESHOLD", "0.40"))    # порог выхода по |score|
-    SIG_MIN_SUPPORT = float(os.environ.get("SIG_MIN_SUPPORT", "0.30"))          # мин. доля взвешенной поддержки старших ТФ
-    SIG_LOOKBACK = int(os.environ.get("SIG_LOOKBACK", "2"))                     # скользящее среднее score
-    EXIT_ON_FLIP = True  # закрывать сразу при смене знака score
+    SIG_ENTRY_THRESHOLD = float(os.environ.get("SIG_ENTRY_THRESHOLD", "0.60"))
+    SIG_EXIT_THRESHOLD = float(os.environ.get("SIG_EXIT_THRESHOLD", "0.40"))
+    SIG_MIN_SUPPORT = float(os.environ.get("SIG_MIN_SUPPORT", "0.30"))
+    SIG_LOOKBACK = int(os.environ.get("SIG_LOOKBACK", "2"))
+    EXIT_ON_FLIP = True
 
     # Базовые пороги (для обратной совместимости отдельных мест)
     SIGNAL_THRESHOLD = float(os.environ.get("SIGNAL_THRESHOLD", "0.8"))
@@ -64,21 +65,9 @@ class Config:
     }
     SIGNAL_HOLD_MARGIN = float(os.environ.get("SIGNAL_HOLD_MARGIN", "0.05"))
 
-    # Иерархия и веса таймфреймов (бОльшие веса старшим ТФ)
-    MIN_CONFIRMED_HIGHER_BY_TF = {
-        "15m": 1,
-        "1h":  1,
-        "4h":  1,
-        "1d":  1,
-        "1w":  0,
-    }
-    HIERARCHY_WEIGHTS = {
-        "15m": 1.0,
-        "1h":  1.2,
-        "4h":  1.4,
-        "1d":  1.6,
-        "1w":  1.8,
-    }
+    # Иерархия и веса таймфреймов
+    MIN_CONFIRMED_HIGHER_BY_TF = {"15m": 1, "1h": 1, "4h": 1, "1d": 1, "1w": 0}
+    HIERARCHY_WEIGHTS = {"15m": 1.0, "1h": 1.2, "4h": 1.4, "1d": 1.6, "1w": 1.8}
 
     # Backtest defaults
     BT_SL_ATR = float(os.environ.get("BT_SL_ATR", "1.0"))
